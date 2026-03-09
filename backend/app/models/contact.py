@@ -28,4 +28,10 @@ class Contact(UUIDPrimaryKeyMixin, TimestampMixin, Base):
     notes: Mapped[str | None] = mapped_column(Text, nullable=True)
 
     company: Mapped["Company"] = relationship(back_populates="contacts")
-    messages: Mapped[list["OutreachMessage"]] = relationship(back_populates="contact")
+    outreach_messages: Mapped[list["OutreachMessage"]] = relationship(
+        back_populates="contact",
+    )
+
+    @property
+    def messages(self) -> list["OutreachMessage"]:
+        return self.outreach_messages

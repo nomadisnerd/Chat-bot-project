@@ -27,7 +27,7 @@ class Company(UUIDPrimaryKeyMixin, TimestampMixin, Base):
         back_populates="company",
         cascade="all, delete-orphan",
     )
-    messages: Mapped[list["OutreachMessage"]] = relationship(
+    outreach_messages: Mapped[list["OutreachMessage"]] = relationship(
         back_populates="company",
         cascade="all, delete-orphan",
     )
@@ -35,3 +35,7 @@ class Company(UUIDPrimaryKeyMixin, TimestampMixin, Base):
         back_populates="company",
         cascade="all, delete-orphan",
     )
+
+    @property
+    def messages(self) -> list["OutreachMessage"]:
+        return self.outreach_messages

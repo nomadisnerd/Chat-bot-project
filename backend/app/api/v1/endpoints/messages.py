@@ -89,7 +89,7 @@ def patch_message(
 
     update_data = message_in.model_dump(exclude_unset=True)
 
-    non_nullable_fields = ("company_id", "channel", "message_body", "status")
+    non_nullable_fields = ("company_id", "channel", "subject", "rendered_content", "status")
     for field in non_nullable_fields:
         if field in update_data and update_data[field] is None:
             raise HTTPException(status_code=400, detail=f"{field} cannot be null")

@@ -1,6 +1,12 @@
 ﻿from sqlalchemy import Enum as SQLEnum
 
-from app.core.enums import Channel, CompanyNoteType, OutreachStatus, ReplyClassification
+from app.core.enums import (
+    Channel,
+    CompanyNoteType,
+    MessageStatus,
+    OutreachStatus,
+    ReplyClassification,
+)
 
 channel_enum = SQLEnum(
     Channel,
@@ -13,6 +19,14 @@ channel_enum = SQLEnum(
 outreach_status_enum = SQLEnum(
     OutreachStatus,
     name="outreach_status_enum",
+    native_enum=False,
+    create_constraint=True,
+    validate_strings=True,
+)
+
+message_status_enum = SQLEnum(
+    MessageStatus,
+    name="message_status_enum",
     native_enum=False,
     create_constraint=True,
     validate_strings=True,

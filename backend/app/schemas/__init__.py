@@ -9,6 +9,7 @@ from app.schemas.outreach_message import (
     OutreachMessageUpdate,
 )
 from app.schemas.template import TemplateCreate, TemplateRead, TemplateUpdate
+from app.schemas.workflow import CreateOutreachRequest, CreateOutreachResponse
 
 __all__ = [
     "CompanyCreate",
@@ -26,4 +27,6 @@ __all__ = [
     "TemplateCreate",
     "TemplateRead",
     "TemplateUpdate",
+    "CreateOutreachRequest",
+    "CreateOutreachResponse",
 ]

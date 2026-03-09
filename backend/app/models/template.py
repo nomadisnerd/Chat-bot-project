@@ -24,4 +24,10 @@ class Template(UUIDPrimaryKeyMixin, TimestampMixin, Base):
         server_default=true(),
     )
 
-    messages: Mapped[list["OutreachMessage"]] = relationship(back_populates="template")
+    outreach_messages: Mapped[list["OutreachMessage"]] = relationship(
+        back_populates="template",
+    )
+
+    @property
+    def messages(self) -> list["OutreachMessage"]:
+        return self.outreach_messages

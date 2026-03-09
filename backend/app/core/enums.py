@@ -18,6 +18,16 @@ class OutreachStatus(str, Enum):
     MANUAL_REVIEW = "manual_review"
 
 
+class MessageStatus(str, Enum):
+    DRAFTED = "drafted"
+    SENT = "sent"
+    AWAITING_REPLY = "awaiting_reply"
+    REPLIED = "replied"
+    FOLLOW_UP_DUE = "follow_up_due"
+    REJECTED = "rejected"
+    ACCEPTED = "accepted"
+
+
 class ReplyClassification(str, Enum):
     REJECTED = "rejected"
     POSITIVE = "positive"

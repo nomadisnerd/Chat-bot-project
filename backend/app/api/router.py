@@ -1,6 +1,14 @@
 ﻿from fastapi import APIRouter
 
-from app.api.v1.endpoints import companies, contacts, dashboard, messages, replies, templates
+from app.api.v1.endpoints import (
+    companies,
+    contacts,
+    dashboard,
+    messages,
+    replies,
+    templates,
+    workflow,
+)
 
 api_router = APIRouter()
 api_router.include_router(companies.router, prefix="/companies", tags=["companies"])
@@ -9,3 +17,4 @@ api_router.include_router(templates.router, prefix="/templates", tags=["template
 api_router.include_router(messages.router, prefix="/messages", tags=["messages"])
 api_router.include_router(replies.router, prefix="/replies", tags=["replies"])
 api_router.include_router(dashboard.router, prefix="/dashboard", tags=["dashboard"])
+api_router.include_router(workflow.router, prefix="/workflow", tags=["workflow"])
